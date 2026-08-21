@@ -169,7 +169,7 @@ export default function Home() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative h-[340px] w-[300px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
               <Image
-                src="/profile.jpg"
+                src="/profile.png"
                 alt="Aswith Reddy Sama"
                 fill
                 priority
