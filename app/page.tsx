@@ -1,12 +1,141 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+
+const projects = {
+  ai: [
+    {
+      title: "AI Engineering Portfolio",
+      category: "AI Engineering · Portfolio",
+      description:
+        "A collection of production-focused AI engineering work spanning LLM applications, RAG systems, agentic workflows, multimodal AI, and intelligent software.",
+      tags: ["LLMs", "RAG", "Agents", "AI Engineering"],
+      href: "https://github.com/AswithSama/portfolio_",
+    },
+    {
+      title: "RelayAI",
+      category: "Production AI · Multi-Agent Systems",
+      description:
+        "Multi-tenant AI messaging and customer-service platform built around layered LLM reasoning, deterministic workflows, asynchronous processing, and human-in-the-loop escalation.",
+      tags: ["LangGraph", "FastAPI", "PostgreSQL", "LLMs"],
+      href: "https://github.com/AswithSama/RelayAI---Intelligent-Multi-Tenant-Messaging-System",
+    },
+    {
+      title: "Health Insurance RAG Pipeline",
+      category: "RAG · Information Retrieval",
+      description:
+        "Multi-stage retrieval architecture for answering complex health-insurance policy questions using semantic retrieval, structured information extraction, reranking, and grounded generation.",
+      tags: ["Python", "RAG", "MongoDB Atlas", "CrossEncoder"],
+      href: "https://github.com/AswithSama/RAG-Powered-Health-Insurance-Policy-Retrieval-Pipeline",
+    },
+    {
+      title: "Vision-Text LLM Assignment Grader",
+      category: "Multimodal AI · Vision-Language Models",
+      description:
+        "Automated grading pipeline combining vision-language models for document understanding with LLM-based structured answer extraction and deterministic grading.",
+      tags: ["VLMs", "LLMs", "Python", "Computer Vision"],
+      href: "https://github.com/AswithSama/Vision-Text-LLM-Assignment-Grader",
+    },
+    {
+      title: "Agentic YouTube Intelligence System",
+      category: "Agentic AI · Content Intelligence",
+      description:
+        "Agentic AI system for extracting, analyzing, and reasoning over YouTube content to generate structured insights from long-form video information.",
+      tags: ["Agents", "LLMs", "Python", "AI Automation"],
+      href: "https://github.com/AswithSama/Agentic-YouTube-Intelligence-System",
+    },
+    {
+      title: "Psychology Expert RAG System",
+      category: "RAG · Expert Knowledge Systems",
+      description:
+        "RAG-powered psychology expert system designed to retrieve relevant domain knowledge and generate grounded, context-aware responses.",
+      tags: ["RAG", "LLMs", "Embeddings", "Python"],
+      href: "https://github.com/AswithSama/RAG-Powered-Psychology-Expert-System",
+    },
+  ],
+
+  software: [
+    {
+      title: "Talent Recruitment Platform",
+      category: "Software Engineering · Full-Stack Platform",
+      description:
+        "Full-stack talent recruitment platform supporting structured hiring workflows, user management, recruiter and candidate experiences, and production-oriented application architecture.",
+      tags: ["Next.js", "TypeScript", "Supabase", "AWS"],
+      href: "https://github.com/AswithSama/Talent-Recruitment-Platform",
+    },
+  ],
+
+  data: [
+    {
+      title: "Churn Analytics & Prediction",
+      category: "Data Science · Predictive Analytics",
+      description:
+        "End-to-end customer churn analysis combining exploratory data analysis, feature engineering, statistical insights, and machine-learning-based churn prediction.",
+      tags: ["Python", "Pandas", "Machine Learning", "EDA"],
+      href: "https://github.com/AswithSama/In-Depth-Churn-Analytics-and-Prediction",
+    },
+    {
+      title: "Wellness Text Classification & Scoring",
+      category: "NLP · Transformer Fine-Tuning",
+      description:
+        "NLP pipeline combining GPT-assisted data labeling with BERTweet fine-tuning for multi-label wellness classification and well-being scoring from user-generated text.",
+      tags: ["BERTweet", "PyTorch", "PEFT / LoRA", "GPT"],
+      href: "https://github.com/AswithSama/GPT-and-BERTweet-based-Wellness-Text-Classification-and-Scoring",
+    },
+    {
+      title: "Vehicle Counting & Traffic Congestion Detection",
+      category: "Computer Vision · Traffic Analytics",
+      description:
+        "Computer-vision system for detecting and counting vehicles from traffic footage and using traffic density information to identify congestion patterns.",
+      tags: ["Computer Vision", "Python", "Object Detection", "Analytics"],
+      href: "https://github.com/AswithSama/Vehicle-Counting-and-Traffic-Congestion-Detection",
+    },
+    {
+      title: "Loan Approval Prediction",
+      category: "Machine Learning · Classification",
+      description:
+        "Machine-learning project analyzing applicant and financial attributes to model and predict loan approval outcomes.",
+      tags: ["Python", "Scikit-learn", "Classification", "EDA"],
+      href: "https://github.com/AswithSama/LOAN-APPROVAL-PREDICTION",
+    },
+    {
+      title: "AlexNet From Scratch",
+      category: "Deep Learning · Computer Vision",
+      description:
+        "Implementation of the AlexNet convolutional neural-network architecture from scratch to explore deep-learning architecture design and image classification.",
+      tags: ["Deep Learning", "CNN", "PyTorch", "Computer Vision"],
+      href: "https://github.com/AswithSama/AlexNet_From_Scratch",
+    },
+    {
+      title: "2024 Alaska Election Prediction",
+      category: "Data Science · Election Analytics",
+      description:
+        "Data-driven analysis and predictive modeling of the 2024 U.S. presidential and congressional election outcomes in Alaska.",
+      tags: ["Data Analysis", "Prediction", "Python", "Statistics"],
+      href: "https://github.com/AswithSama/2024_USA_Presidential_and_Congressional_Election_Prediction_Alaska",
+    },
+    {
+      title: "Mercedes-Benz Greener Manufacturing",
+      category: "Data Science · Regression",
+      description:
+        "Predictive analytics project focused on Mercedes-Benz manufacturing data to model testing time and investigate opportunities for more efficient production.",
+      tags: ["Machine Learning", "Regression", "Python", "EDA"],
+      href: "https://github.com/AswithSama/Mercedes-Benz-Greener-Manufacturing",
+    },
+  ],
+};
+
+type ProjectTab = keyof typeof projects;
 
 export default function Home() {
+  const [activeProjectTab, setActiveProjectTab] = useState<ProjectTab>("ai");
   return (
     <main className="min-h-screen bg-black text-white">
 
       {/* Navbar */}
       <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5">
 
           <a
             href="#"
@@ -15,31 +144,40 @@ export default function Home() {
             AS
           </a>
 
-          <div className="hidden items-center gap-8 text-sm text-gray-400 md:flex">
-            <a href="#about" className="transition hover:text-white">
-              About
-            </a>
+        <div className="hidden items-center gap-3 text-base font-medium text-gray-300 md:flex">
 
-            <a href="#projects" className="transition hover:text-white">
-              Projects
-            </a>
+          <a
+            href="/about"
+            className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
+          >
+            About
+          </a>
 
-            <a href="#experience" className="transition hover:text-white">
-              Experience
-            </a>
+          <a
+            href="#projects"
+            className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
+          >
+            Projects
+          </a>
 
-            <div className="group relative">
-              <button
-                type="button"
-                className="flex items-center gap-1 transition hover:text-white"
-              >
-                Contact
-                <span className="text-xs transition-transform duration-200 group-hover:rotate-180">
-                  ↓
-                </span>
-              </button>
+          <a
+            href="#experience"
+            className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
+          >
+            Experience
+          </a>
 
-              <div className="invisible absolute right-0 top-full z-50 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+          <div className="group relative">
+            <button
+              type="button"
+              className="flex items-center gap-2 rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
+            >
+              Contact
+
+              <span className="text-sm transition-transform duration-200 group-hover:rotate-180">
+                ↓
+              </span>
+            </button>              <div className="invisible absolute right-0 top-full z-50 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                 <div className="w-72 rounded-2xl border border-white/10 bg-black p-4 shadow-2xl">
 
                   {/* Email */}
@@ -81,12 +219,12 @@ export default function Home() {
 
       {/* Hero */}
       <section className="px-6 pb-24 pt-40">
-        <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_340px]">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-14 lg:grid-cols-[1fr_340px]">
 
           {/* Hero Content */}
           <div>
             <p className="mb-5 text-sm uppercase tracking-[0.3em] text-gray-500">
-              AI Engineer · Software Engineer
+              AI Engineer · Software Engineer · Data Scientist
             </p>
 
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
@@ -97,9 +235,8 @@ export default function Home() {
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-400">
-              I&apos;m Aswith Reddy Sama, an AI engineer focused on building
-              production-grade AI applications, RAG systems, multi-agent
-              workflows, and scalable software products.
+              I&apos;m Aswith Reddy Sama, an engineer focused on building intelligent systems, 
+              scalable software, and data-driven solutions across AI engineering, software engineering, and data science.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -184,10 +321,10 @@ export default function Home() {
 
 
       {/* Projects */}
-      <section id="projects" className="px-6 py-24">
-        <div className="mx-auto max-w-6xl">
+      <section id="projects" className="px-6 py-28 lg:px-10">
+        <div className="mx-auto max-w-[1400px]">
 
-          <div className="mb-14">
+          <div className="mb-10">
             <p className="mb-3 text-sm uppercase tracking-[0.3em] text-gray-500">
               Selected Work
             </p>
@@ -197,184 +334,101 @@ export default function Home() {
             </h2>
 
             <p className="mt-5 max-w-2xl text-gray-400">
-              A selection of projects focused on production AI systems,
-              retrieval pipelines, multimodal AI, and NLP.
+              Explore my work across AI engineering, software engineering,
+              data science, and analytics.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-
-            {/* RelayAI */}
-            <a
-              href="https://github.com/AswithSama/RelayAI---Intelligent-Multi-Tenant-Messaging-System"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.03]"
+          {/* Project Tabs */}
+          <div className="mb-10 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => setActiveProjectTab("ai")}
+              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${
+                activeProjectTab === "ai"
+                  ? "border-white bg-white text-black"
+                  : "border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
+              }`}
             >
-              <p className="mb-3 text-sm text-gray-500">
-                Production AI · Multi-Agent Systems
-              </p>
+              AI Engineering
+            </button>
 
-              <h3 className="text-2xl font-semibold">
-                RelayAI
-              </h3>
-
-              <p className="mt-4 leading-7 text-gray-400">
-                Multi-tenant AI messaging and customer-service platform built
-                around layered LLM reasoning, deterministic workflows,
-                asynchronous processing, and human-in-the-loop escalation.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  LangGraph
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  FastAPI
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  PostgreSQL
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  LLMs
-                </span>
-              </div>
-            </a>
-
-
-            {/* Health Insurance RAG */}
-            <a
-              href="https://github.com/AswithSama/RAG-Powered-Health-Insurance-Policy-Retrieval-Pipeline"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.03]"
+            <button
+              type="button"
+              onClick={() => setActiveProjectTab("software")}
+              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${
+                activeProjectTab === "software"
+                  ? "border-white bg-white text-black"
+                  : "border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
+              }`}
             >
-              <p className="mb-3 text-sm text-gray-500">
-                RAG · Information Retrieval
-              </p>
+              Software Engineering
+            </button>
 
-              <h3 className="text-2xl font-semibold">
-                Health Insurance RAG Pipeline
-              </h3>
-
-              <p className="mt-4 leading-7 text-gray-400">
-                Multi-stage retrieval architecture for answering complex health
-                insurance policy questions using semantic retrieval, structured
-                information extraction, reranking, and grounded generation.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  Python
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  RAG
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  MongoDB Atlas
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  CrossEncoder
-                </span>
-              </div>
-            </a>
-
-
-            {/* Assignment Grader */}
-            <a
-              href="https://github.com/AswithSama/Vision-Text-LLM-Assignment-Grader"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.03]"
+            <button
+              type="button"
+              onClick={() => setActiveProjectTab("data")}
+              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${
+                activeProjectTab === "data"
+                  ? "border-white bg-white text-black"
+                  : "border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
+              }`}
             >
-              <p className="mb-3 text-sm text-gray-500">
-                Multimodal AI · Vision-Language Models
-              </p>
-
-              <h3 className="text-2xl font-semibold">
-                Vision-Text LLM Assignment Grader
-              </h3>
-
-              <p className="mt-4 leading-7 text-gray-400">
-                Automated grading pipeline combining vision-language models for
-                handwritten and document understanding with LLM-based structured
-                answer extraction and deterministic grading.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  VLMs
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  LLMs
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  Python
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  Computer Vision
-                </span>
-              </div>
-            </a>
-
-
-            {/* Wellness NLP */}
-            <a
-              href="https://github.com/AswithSama/GPT-and-BERTweet-based-Wellness-Text-Classification-and-Scoring"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.03]"
-            >
-              <p className="mb-3 text-sm text-gray-500">
-                NLP · Transformer Fine-Tuning
-              </p>
-
-              <h3 className="text-2xl font-semibold">
-                Wellness Text Classification & Scoring
-              </h3>
-
-              <p className="mt-4 leading-7 text-gray-400">
-                NLP pipeline combining GPT-assisted data labeling with BERTweet
-                fine-tuning for multi-label wellness classification and
-                well-being scoring from user-generated text.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  BERTweet
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  PyTorch
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  PEFT / LoRA
-                </span>
-
-                <span className="rounded-full border border-white/10 px-3 py-1">
-                  GPT
-                </span>
-              </div>
-            </a>
-
+              Data Science & Analytics
+            </button>
           </div>
+
+          {/* Project Cards - fixed desktop area prevents Experience from jumping */}
+          <div className="min-h-0 xl:min-h-[820px]">
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {projects[activeProjectTab].map((project) => (
+              <a
+                key={project.href}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.03]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="mb-3 text-sm text-gray-500">
+                      {project.category}
+                    </p>
+
+                    <h3 className="text-2xl font-semibold">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <span className="mt-1 text-xl text-gray-600 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">
+                    ↗
+                  </span>
+                </div>
+
+                <p className="mt-4 leading-7 text-gray-400">
+                  {project.description}
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 px-3 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+          </div>
+
         </div>
       </section>
-
-
       {/* Experience */}
-      <section id="experience" className="px-6 py-24">
-        <div className="mx-auto max-w-6xl">
+      <section id="experience" className="px-6 py-28 lg:px-10">
+        <div className="mx-auto max-w-[1400px]">
 
           <div className="mb-16">
             <p className="mb-3 text-sm uppercase tracking-[0.3em] text-gray-500">
@@ -398,7 +452,7 @@ export default function Home() {
 
 
             {/* CEAC */}
-            <div className="relative grid gap-6 pb-14 md:grid-cols-[180px_1fr]">
+            <div className="relative grid gap-6 pb-14 md:grid-cols-[220px_1fr]">
 
               <div className="relative pl-0 md:pl-10">
                 <div className="absolute left-0 top-2 hidden h-4 w-4 rounded-full border border-white/30 bg-black md:block" />
