@@ -5,14 +5,7 @@ import { useState } from "react";
 
 const projects = {
   ai: [
-    {
-      title: "AI Engineering Portfolio",
-      category: "AI Engineering · Portfolio",
-      description:
-        "A collection of production-focused AI engineering work spanning LLM applications, RAG systems, agentic workflows, multimodal AI, and intelligent software.",
-      tags: ["LLMs", "RAG", "Agents", "AI Engineering"],
-      href: "https://github.com/AswithSama/portfolio_",
-    },
+
     {
       title: "RelayAI",
       category: "Production AI · Multi-Agent Systems",
