@@ -2,12 +2,29 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import SiteNav from "./components/SiteNav";
 
 const projects = {
   ai: [
+    {
+      title: "Computer Use Automation",
+      image: "/project-photos/approved/computer-use-automation.png",
+      backupImage: "/project-photos/computer-use-automation.png",
+      fallbackImage: "/project-covers/computer-use-automation.svg",
+      coverMode: "diagram",
+      category: "AI Agents · Browser Automation",
+      description:
+        "AI-powered browser automation that discovers workflows with GPT-5-mini, converts them into reusable capabilities, and replays them deterministically with guardrails, policy enforcement, and human-assisted recovery, validated by 23 real-browser acceptance tests.",
+      tags: ["Python", "Playwright", "Pydantic", "Deterministic Replay"],
+      href: "https://github.com/AswithSama/Computer-Use-Automation",
+    },
 
     {
       title: "RelayAI",
+      image: "/project-photos/approved/relayai.png",
+      backupImage: "/project-photos/relayai.png",
+      fallbackImage: "/project-covers/relayai.svg",
+      coverMode: "diagram",
       category: "Production AI · Multi-Agent Systems",
       description:
         "Multi-tenant AI messaging and customer-service platform built around layered LLM reasoning, deterministic workflows, asynchronous processing, and human-in-the-loop escalation.",
@@ -16,6 +33,10 @@ const projects = {
     },
     {
       title: "Health Insurance RAG Pipeline",
+      image: "/project-photos/approved/health-rag.png",
+      backupImage: "/project-photos/health-rag.png",
+      fallbackImage: "/project-covers/health-rag.svg",
+      coverMode: "diagram",
       category: "RAG · Information Retrieval",
       description:
         "Multi-stage retrieval architecture for answering complex health-insurance policy questions using semantic retrieval, structured information extraction, reranking, and grounded generation.",
@@ -24,6 +45,10 @@ const projects = {
     },
     {
       title: "Vision-Text LLM Assignment Grader",
+      image: "/project-photos/approved/vision-grader.png",
+      backupImage: "/project-photos/vision-grader.png",
+      fallbackImage: "/project-covers/vision-grader.svg",
+      coverMode: "diagram",
       category: "Multimodal AI · Vision-Language Models",
       description:
         "Automated grading pipeline combining vision-language models for document understanding with LLM-based structured answer extraction and deterministic grading.",
@@ -32,6 +57,10 @@ const projects = {
     },
     {
       title: "Agentic YouTube Intelligence System",
+      image: "/project-photos/approved/youtube-agent.png",
+      backupImage: "/project-photos/youtube-agent.png",
+      fallbackImage: "/project-covers/youtube-agent.svg",
+      coverMode: "photo",
       category: "Agentic AI · Content Intelligence",
       description:
         "Agentic AI system for extracting, analyzing, and reasoning over YouTube content to generate structured insights from long-form video information.",
@@ -39,29 +68,51 @@ const projects = {
       href: "https://github.com/AswithSama/Agentic-YouTube-Intelligence-System",
     },
     {
-      title: "Psychology Expert RAG System",
-      category: "RAG · Expert Knowledge Systems",
+      title: "Psychology Textbook Semantic Search",
+      image: "/project-photos/approved/psychology-semantic-search.png",
+      backupImage: "/project-photos/psychology-semantic-search.png",
+      fallbackImage: "/project-covers/psychology-rag.svg",
+      coverMode: "diagram",
+      category: "Semantic Search · Document Retrieval",
       description:
-        "RAG-powered psychology expert system designed to retrieve relevant domain knowledge and generate grounded, context-aware responses.",
-      tags: ["RAG", "LLMs", "Embeddings", "Python"],
-      href: "https://github.com/AswithSama/RAG-Powered-Psychology-Expert-System",
+        "Section-aware psychology textbook search with hierarchical PDF chunking, sentence embeddings, ChromaDB indexing, and a FastAPI-powered retrieval interface. Returns relevant source passages rather than generating chatbot answers.",
+      tags: ["Sentence Transformers", "ChromaDB", "FastAPI", "Semantic Search"],
+      href: "https://github.com/AswithSama/psychology-semantic-search",
     },
   ],
 
   software: [
     {
       title: "Talent Recruitment Platform",
+      image: "/project-photos/talent-platform.jpg",
+      fallbackImage: "/project-covers/talent-platform.svg",
+      coverMode: "photo",
       category: "Software Engineering · Full-Stack Platform",
       description:
         "Full-stack talent recruitment platform supporting structured hiring workflows, user management, recruiter and candidate experiences, and production-oriented application architecture.",
       tags: ["Next.js", "TypeScript", "Supabase", "AWS"],
       href: "https://github.com/AswithSama/Talent-Recruitment-Platform",
     },
+    {
+      title: "Venue Intelligence Platform",
+      image: "/project-photos/venue-intelligence.jpg",
+      fallbackImage: "/project-covers/talent-platform.svg",
+      coverMode: "photo",
+      category: "Software Project · Documentation In Progress",
+      description:
+        "A repository for Venue Intelligence Platform. The public project documentation and implementation details are still being prepared; follow the GitHub repository for updates.",
+      tags: ["Project Repository", "Documentation Pending"],
+      href: "https://github.com/AswithSama/Venue-Intelligence-Platform-",
+    },
   ],
 
   data: [
     {
       title: "Churn Analytics & Prediction",
+      image: "/project-photos/approved/churn.png",
+      backupImage: "/project-photos/churn.png",
+      fallbackImage: "/project-covers/churn.svg",
+      coverMode: "diagram",
       category: "Data Science · Predictive Analytics",
       description:
         "End-to-end customer churn analysis combining exploratory data analysis, feature engineering, statistical insights, and machine-learning-based churn prediction.",
@@ -70,6 +121,10 @@ const projects = {
     },
     {
       title: "Wellness Text Classification & Scoring",
+      image: "/project-photos/approved/wellness.png",
+      backupImage: "/project-photos/wellness.svg",
+      fallbackImage: "/project-covers/wellness.svg",
+      coverMode: "diagram",
       category: "NLP · Transformer Fine-Tuning",
       description:
         "NLP pipeline combining GPT-assisted data labeling with BERTweet fine-tuning for multi-label wellness classification and well-being scoring from user-generated text.",
@@ -78,6 +133,10 @@ const projects = {
     },
     {
       title: "Vehicle Counting & Traffic Congestion Detection",
+      image: "/project-photos/approved/traffic.png",
+      backupImage: "/project-photos/traffic.jpg",
+      fallbackImage: "/project-covers/traffic.svg",
+      coverMode: "photo",
       category: "Computer Vision · Traffic Analytics",
       description:
         "Computer-vision system for detecting and counting vehicles from traffic footage and using traffic density information to identify congestion patterns.",
@@ -86,6 +145,10 @@ const projects = {
     },
     {
       title: "Loan Approval Prediction",
+      image: "/project-photos/approved/loan.png",
+      backupImage: "/project-photos/loan.png",
+      fallbackImage: "/project-covers/loan.svg",
+      coverMode: "diagram",
       category: "Machine Learning · Classification",
       description:
         "Machine-learning project analyzing applicant and financial attributes to model and predict loan approval outcomes.",
@@ -94,6 +157,10 @@ const projects = {
     },
     {
       title: "AlexNet From Scratch",
+      image: "/project-photos/approved/alexnet.png",
+      backupImage: "/project-photos/alexnet.png",
+      fallbackImage: "/project-covers/alexnet.svg",
+      coverMode: "diagram",
       category: "Deep Learning · Computer Vision",
       description:
         "Implementation of the AlexNet convolutional neural-network architecture from scratch to explore deep-learning architecture design and image classification.",
@@ -102,6 +169,10 @@ const projects = {
     },
     {
       title: "2024 Alaska Election Prediction",
+      image: "/project-photos/approved/alaska-election.png",
+      backupImage: "/project-photos/alaska-election.svg",
+      fallbackImage: "/project-covers/alaska-election.svg",
+      coverMode: "diagram",
       category: "Data Science · Election Analytics",
       description:
         "Data-driven analysis and predictive modeling of the 2024 U.S. presidential and congressional election outcomes in Alaska.",
@@ -110,6 +181,10 @@ const projects = {
     },
     {
       title: "Mercedes-Benz Greener Manufacturing",
+      image: "/project-photos/approved/mercedes.png",
+      backupImage: "/project-photos/mercedes.jpg",
+      fallbackImage: "/project-covers/mercedes.svg",
+      coverMode: "photo",
       category: "Data Science · Regression",
       description:
         "Predictive analytics project focused on Mercedes-Benz manufacturing data to model testing time and investigate opportunities for more efficient production.",
@@ -119,100 +194,68 @@ const projects = {
   ],
 };
 
+const experience = [
+  {
+    company: "Box Technology Group",
+    title: "Software Engineering (AI/ML) Intern",
+    period: "Aug 2026 — Present",
+    location: "Delaware, USA",
+    project: "Ressa · Multi-Agent Conversational AI Platform",
+    description: "Owning multi-agent AI architecture connecting RAG, messaging, CRM, and scheduling across 16 real estate domains. Building OpenAI-powered intent and fact extraction across 7 action classes, tenant-safe FastAPI integrations for Twilio, Gmail, and Microsoft Graph, and an evaluation framework spanning 320+ scenarios with targets of 95% classification accuracy and 90% context retention.",
+    tags: ["OpenAI", "RAG", "FastAPI", "LangChain", "Twilio"],
+  },
+  {
+    company: "Catapult",
+    title: "AI Engineer",
+    period: "May 2026 — Jul 2026",
+    location: "Utah, USA",
+    project: "Intelligent Multi-Tenant Messaging System",
+    description: "Led a three-layer LangGraph multi-agent platform for customer service across 70+ pest-control companies and 15+ sub-domains. Built deterministic execution and AI guardrails around LLM decisions, plus asynchronous FastAPI/Twilio/CRM workers on GCP Cloud Run; reached approximately 95% production classification accuracy.",
+    tags: ["LangGraph", "FastAPI", "PostgreSQL", "GCP Cloud Run", "Twilio"],
+  },
+  {
+    company: "Chicago Education Advocacy Cooperative",
+    title: "Data Scientist",
+    period: "Feb 2026 — May 2026",
+    location: "Chicago, USA",
+    project: "Talent Recruitment Platform",
+    description: "Built an AI-enabled recruitment platform using GPT-5-mini for resume parsing and candidate skill/experience extraction. Developed candidate discovery with 12+ search filters, role-based access control, PostgreSQL, and automated deployments through AWS ECS and GitHub Actions.",
+    tags: ["OpenAI", "Next.js", "Supabase", "PostgreSQL", "AWS ECS"],
+  },
+  {
+    company: "Uplifty",
+    title: "AI/ML Algorithm Engineering Intern",
+    period: "Jul 2025 — Nov 2025",
+    location: "New York, USA",
+    project: "Human Wellness NLP Pipeline",
+    description: "Built a multi-agent weak-labeling pipeline for 100K+ texts, escalating conflicting model labels for review, then fine-tuned BERTweet with PEFT/LoRA. Achieved 0.70–0.90 F1 across 27 emotion and 13 well-being categories and deployed Flask/GCP prediction APIs.",
+    tags: ["PyTorch", "BERTweet", "PEFT / LoRA", "LLM Orchestration", "GCP"],
+  },
+  {
+    company: "Unizen Technologies Pvt. Ltd.",
+    title: "Software Engineer / Analyst",
+    period: "May 2022 — Dec 2023",
+    location: "Bangalore, India",
+    project: "Learning Management System · Enterprise Data Pipeline",
+    description: "Developed 20+ Node.js/Express REST APIs for an LMS serving 5,000+ users, improving API latency by about 20%. Worked with AWS S3/CodePipeline and processed 100K+ sales and inventory records with Databricks/PySpark, Power BI, and Azure Data Factory ETL workflows.",
+    tags: ["Node.js", "Express", "MySQL", "AWS", "PySpark", "Power BI"],
+  },
+];
+
 type ProjectTab = keyof typeof projects;
 
 export default function Home() {
   const [activeProjectTab, setActiveProjectTab] = useState<ProjectTab>("ai");
+  const [coverFailed, setCoverFailed] = useState<Record<string, number>>({});
   return (
     <main className="min-h-screen bg-black text-white">
 
-      {/* Navbar */}
-      <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5">
-
-          <a
-            href="#"
-            className="text-lg font-semibold tracking-tight"
-          >
-            AS
-          </a>
-
-        <div className="hidden items-center gap-3 text-base font-medium text-gray-300 md:flex">
-
-          <a
-            href="/about"
-            className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-          >
-            About
-          </a>
-
-          <a
-            href="#projects"
-            className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-          >
-            Projects
-          </a>
-
-          <a
-            href="#experience"
-            className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-          >
-            Experience
-          </a>
-
-          <div className="group relative">
-            <button
-              type="button"
-              className="flex items-center gap-2 rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-            >
-              Contact
-
-              <span className="text-sm transition-transform duration-200 group-hover:rotate-180">
-                ↓
-              </span>
-            </button>              <div className="invisible absolute right-0 top-full z-50 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                <div className="w-72 rounded-2xl border border-white/10 bg-black p-4 shadow-2xl">
-
-                  {/* Email */}
-                  <a
-                    href="mailto:aswithreddy907@gmail.com"
-                    className="block rounded-xl p-3 transition hover:bg-white/[0.06]"
-                  >
-                    <p className="text-xs uppercase tracking-wider text-gray-600">
-                      Email
-                    </p>
-
-                    <p className="mt-1 text-sm text-white">
-                      aswithreddy907@gmail.com
-                    </p>
-                  </a>
-
-                  {/* Phone */}
-                  <a
-                    href="tel:+17736734072"
-                    className="mt-1 block rounded-xl p-3 transition hover:bg-white/[0.06]"
-                  >
-                    <p className="text-xs uppercase tracking-wider text-gray-600">
-                      Phone
-                    </p>
-
-                    <p className="mt-1 text-sm text-white">
-                      (773) 673-4072
-                    </p>
-                  </a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </nav>
+      <SiteNav />
 
 
       {/* Hero */}
-      <section className="px-6 pb-24 pt-40">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-14 lg:grid-cols-[1fr_340px]">
+      <section className="px-6 pb-14 pt-40">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_390px]">
 
           {/* Hero Content */}
           <div>
@@ -228,8 +271,9 @@ export default function Home() {
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-400">
-              I&apos;m Aswith Reddy Sama, an engineer focused on building intelligent systems, 
-              scalable software, and data-driven solutions across AI engineering, software engineering, and data science.
+              I&apos;m Aswith Reddy Sama, an AI Engineer with 3+ years of combined AI/ML and software engineering experience.
+              I build production-grade LLM applications, multi-agent systems, and RAG pipelines backed by reliable
+              workflows, guardrails, and scalable cloud services.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -290,6 +334,13 @@ export default function Home() {
               >
                 Resume
               </a>
+              {/* About CTA: text only, no arrow icon */}
+              <a
+                href="/about"
+                className="flex h-12 items-center justify-center rounded-full border border-white/35 bg-white/[0.08] px-6 text-sm font-semibold text-white transition duration-200 hover:border-white/70 hover:bg-white/[0.14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                My Story
+              </a>
 
             </div>
           </div>
@@ -297,13 +348,13 @@ export default function Home() {
 
           {/* Profile Photo */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative h-[340px] w-[300px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+            <div className="relative h-[390px] w-[320px] overflow-hidden rounded-3xl border border-white/15 bg-white/[0.03] shadow-[0_22px_65px_rgba(0,0,0,0.45)] sm:h-[420px] sm:w-[350px] lg:h-[460px] lg:w-[390px]">
               <Image
                 src="/profile.png"
                 alt="Aswith Reddy Sama"
                 fill
                 priority
-                sizes="(max-width: 1024px) 300px, 340px"
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 350px, 390px"
                 className="object-cover"
               />
             </div>
@@ -313,8 +364,47 @@ export default function Home() {
       </section>
 
 
+      {/* About preview — editorial layout, not a callout or floating card */}
+      <section aria-labelledby="about-preview-heading" className="px-6 pb-14 pt-2 lg:px-10">
+        <div className="mx-auto max-w-[1400px] border-y border-white/10 py-7 sm:py-9">
+          <div className="grid items-center gap-8 sm:grid-cols-[158px_1fr] sm:gap-8 lg:grid-cols-[180px_1fr] lg:gap-12">
+            <a
+              href="/about"
+              aria-label="Read more about Aswith Reddy Sama"
+              className="group relative block h-[195px] w-[158px] overflow-hidden rounded-2xl border border-white/10 sm:h-[210px] lg:h-[235px] lg:w-[180px]"
+            >
+              <Image
+                src="/aswith-about.jpg"
+                alt="Aswith Reddy Sama looking out toward the sea"
+                fill
+                sizes="(max-width: 1024px) 158px, 180px"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+            </a>
+
+            <div className="max-w-3xl">
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
+                Get to know me
+              </p>
+              <h2 id="about-preview-heading" className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Beyond the code.
+              </h2>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-gray-400 sm:text-lg">
+                My love for mathematics led me into software engineering and AI. Today, I focus on building intelligent systems that are useful, reliable, and designed for the real world.
+              </p>
+              <a
+                href="/about"
+                className="mt-4 inline-block border-b border-white/50 pb-1 text-sm font-semibold text-white transition-colors duration-200 hover:border-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                Read My Story
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects */}
-      <section id="projects" className="px-6 py-28 lg:px-10">
+      <section id="projects" className="scroll-mt-28 px-6 pb-28 pt-12 lg:px-10">
         <div className="mx-auto max-w-[1400px]">
 
           <div className="mb-10">
@@ -371,282 +461,140 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Project Cards - fixed desktop area prevents Experience from jumping */}
-          <div className="min-h-0 xl:min-h-[820px]">
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {projects[activeProjectTab].map((project) => (
+          {/* Project Cards — individual visual covers, original project categories */}
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {projects[activeProjectTab].map((project) => (
               <a
                 key={project.href}
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.03]"
+                className="group relative z-0 block overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:z-10 hover:-translate-y-2 hover:scale-[1.05] hover:border-white/35 hover:bg-white/[0.05] hover:shadow-[0_26px_75px_rgba(35,88,150,0.24)] focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300 motion-reduce:transform-none"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="mb-3 text-sm text-gray-500">
-                      {project.category}
-                    </p>
-
-                    <h3 className="text-2xl font-semibold">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  <span className="mt-1 text-xl text-gray-600 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">
-                    ↗
-                  </span>
+                <div className="relative aspect-[16/9] overflow-hidden border-b border-white/10 bg-[#101723]">
+                  <Image
+                    src={coverFailed[project.href] >= 2
+                      ? project.fallbackImage
+                      : coverFailed[project.href] === 1
+                        ? ("backupImage" in project ? project.backupImage : project.fallbackImage)
+                        : project.image}
+                    alt={`${project.title} — illustrative reference image, not an actual project output`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    onError={() => setCoverFailed((current) => ({ ...current, [project.href]: Math.min((current[project.href] ?? 0) + 1, 2) }))}
+                  />
                 </div>
-
-                <p className="mt-4 leading-7 text-gray-400">
-                  {project.description}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-white/10 px-3 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="mb-2 text-xs uppercase tracking-[0.2em] text-gray-500">{project.category}</p>
+                      <h3 className="text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
+                    </div>
+                  </div>
+                  <p className="mt-4 leading-7 text-gray-400">{project.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2 text-sm text-gray-400">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-white/10 px-3 py-1">{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </a>
             ))}
           </div>
-          </div>
+          <p className="mt-6 text-xs text-gray-600">
+            Cover images are illustrative, not screenshots or results from these projects. <a href="/project-cover-credits.html" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-700 underline-offset-4 hover:text-gray-300">Image credits</a>
+          </p>
 
         </div>
       </section>
-      {/* Experience */}
-      <section id="experience" className="px-6 py-28 lg:px-10">
+      {/* Experience — aligned with October 25, 2026 resume */}
+      <section id="experience" className="scroll-mt-28 px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-[1400px]">
-
           <div className="mb-16">
-            <p className="mb-3 text-sm uppercase tracking-[0.3em] text-gray-500">
-              Career
-            </p>
-
-            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-              Experience
-            </h2>
-
+            <p className="mb-3 text-sm uppercase tracking-[0.3em] text-gray-500">Career</p>
+            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Experience</h2>
             <p className="mt-5 max-w-2xl text-gray-400">
-              Building AI systems, machine learning pipelines, and production
-              software across startups, research, and enterprise environments.
+              Building production AI applications, machine learning pipelines, and dependable backend systems.
             </p>
           </div>
-
           <div className="relative">
-
-            {/* Vertical Timeline */}
             <div className="absolute left-[7px] top-2 hidden h-[calc(100%-1rem)] w-px bg-white/10 md:block" />
-
-
-            {/* CEAC */}
-            <div className="relative grid gap-6 pb-14 md:grid-cols-[220px_1fr]">
-
-              <div className="relative pl-0 md:pl-10">
-                <div className="absolute left-0 top-2 hidden h-4 w-4 rounded-full border border-white/30 bg-black md:block" />
-
-                <p className="text-sm text-gray-500">
-                  Feb 2026 — Present
-                </p>
-
-                <p className="mt-2 text-sm text-gray-600">
-                  Chicago, USA
-                </p>
-              </div>
-
-              <div className="border-b border-white/10 pb-14">
-                <h3 className="text-2xl font-semibold">
-                  Data Scientist
-                </h3>
-
-                <p className="mt-1 text-gray-400">
-                  Chicago Education Advocacy Cooperative
-                </p>
-
-                <p className="mt-5 max-w-3xl leading-7 text-gray-400">
-                  Building a venue intelligence platform that combines machine
-                  learning, RAG, operational data, and LLM reasoning to forecast
-                  attendance, dwell time, and revenue while generating
-                  evidence-backed business recommendations.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {[
-                    "Machine Learning",
-                    "RAG",
-                    "LangChain",
-                    "scikit-learn",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 px-3 py-1 text-sm text-gray-500"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            {experience.map((role, index) => (
+              <article key={`${role.company}-${role.period}`} className="relative grid gap-6 pb-14 md:grid-cols-[220px_1fr]">
+                <div className="relative pl-0 md:pl-10">
+                  <div className="absolute left-0 top-2 hidden h-4 w-4 rounded-full border border-white/30 bg-black md:block" />
+                  <p className="text-sm text-gray-400">{role.period}</p>
+                  <p className="mt-2 text-sm text-gray-600">{role.location}</p>
                 </div>
-              </div>
-
-            </div>
-
-
-            {/* Catapult */}
-            <div className="relative grid gap-6 pb-14 md:grid-cols-[180px_1fr]">
-
-              <div className="relative pl-0 md:pl-10">
-                <div className="absolute left-0 top-2 hidden h-4 w-4 rounded-full border border-white/30 bg-black md:block" />
-
-                <p className="text-sm text-gray-500">
-                  May 2026 — Jul 2026
-                </p>
-
-                <p className="mt-2 text-sm text-gray-600">
-                  Utah, USA
-                </p>
-              </div>
-
-              <div className="border-b border-white/10 pb-14">
-                <h3 className="text-2xl font-semibold">
-                  AI Engineer
-                </h3>
-
-                <p className="mt-1 text-gray-400">
-                  Catapult
-                </p>
-
-                <p className="mt-5 max-w-3xl leading-7 text-gray-400">
-                  Architected a 3-layer LangGraph-based AI system supporting
-                  70+ companies, combining LLM reasoning with deterministic
-                  execution, AI guardrails, asynchronous processing, and
-                  human-in-the-loop escalation while achieving approximately
-                  95% production classification accuracy.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {[
-                    "LangGraph",
-                    "FastAPI",
-                    "PostgreSQL",
-                    "GCP",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 px-3 py-1 text-sm text-gray-500"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className={index < experience.length - 1 ? "border-b border-white/10 pb-14" : ""}>
+                  <h3 className="text-2xl font-semibold">{role.title}</h3>
+                  <p className="mt-1 text-gray-400">{role.company}</p>
+                  <p className="mt-2 text-sm text-gray-500">{role.project}</p>
+                  <p className="mt-5 max-w-3xl leading-7 text-gray-400">{role.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {role.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-sm text-gray-500">{tag}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* Skills — integrated image, not separate badges or cards */}
+      <section id="skills" aria-labelledby="skills-heading" className="scroll-mt-28 border-t border-white/10 bg-black px-4 py-16 sm:px-6 sm:py-20 lg:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <h2 id="skills-heading" className="mb-7 text-4xl font-semibold tracking-tight sm:text-5xl">Skills &amp; Technologies</h2>
+          <p className="sr-only">A constellation of technology logos representing my tools and experience, including Python, OpenAI, LangChain, LangGraph, RAG, FastAPI, React, TypeScript, PostgreSQL, MongoDB, MySQL, Supabase, PyTorch, TensorFlow, Docker, Kubernetes, AWS, GCP, Twilio, Playwright, and more.</p>
+          <Image
+            src="/skills-constellation.png"
+            alt="Skills constellation with equally featured logos for languages, AI frameworks, databases, cloud platforms, data science, and developer tools; Gmail and Google Calendar are excluded."
+            width={1672}
+            height={941}
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            className="mx-auto block h-auto w-full max-w-full"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      {/* Education */}
+      <section id="education" className="scroll-mt-28 border-t border-white/10 px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-gray-500">Academic foundation</p>
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Education</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 p-7">
+              <p className="text-sm text-gray-500">Jan 2024 – Dec 2025 · Chicago, USA</p>
+              <h3 className="mt-3 text-xl font-semibold">Illinois Institute of Technology</h3>
+              <p className="mt-2 text-gray-400">M.S. in Artificial Intelligence</p>
+              <p className="mt-3 text-sm text-gray-500">GPA: 3.70/4.00</p>
             </div>
-
-
-            {/* Uplifty */}
-            <div className="relative grid gap-6 pb-14 md:grid-cols-[180px_1fr]">
-
-              <div className="relative pl-0 md:pl-10">
-                <div className="absolute left-0 top-2 hidden h-4 w-4 rounded-full border border-white/30 bg-black md:block" />
-
-                <p className="text-sm text-gray-500">
-                  Jul 2025 — Nov 2025
-                </p>
-
-                <p className="mt-2 text-sm text-gray-600">
-                  New York, USA
-                </p>
-              </div>
-
-              <div className="border-b border-white/10 pb-14">
-                <h3 className="text-2xl font-semibold">
-                  AI/ML Algorithm Engineering Intern
-                </h3>
-
-                <p className="mt-1 text-gray-400">
-                  Uplifty
-                </p>
-
-                <p className="mt-5 max-w-3xl leading-7 text-gray-400">
-                  Built an LLM-assisted wellness NLP pipeline across 100K+
-                  text samples and fine-tuned BERTweet using PEFT/LoRA,
-                  achieving roughly 0.70–0.90 F1 across emotion and
-                  well-being categories.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {[
-                    "PyTorch",
-                    "BERTweet",
-                    "PEFT / LoRA",
-                    "LLMs",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 px-3 py-1 text-sm text-gray-500"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
+            <div className="rounded-2xl border border-white/10 p-7">
+              <p className="text-sm text-gray-500">Jul 2019 – May 2023 · Hyderabad, India</p>
+              <h3 className="mt-3 text-xl font-semibold">J.B. Institute of Engineering and Technology</h3>
+              <p className="mt-2 text-gray-400">B.Tech in Information Technology</p>
+              <p className="mt-3 text-sm text-gray-500">GPA: 3.57/4.00</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-
-            {/* Unizen */}
-            <div className="relative grid gap-6 md:grid-cols-[180px_1fr]">
-
-              <div className="relative pl-0 md:pl-10">
-                <div className="absolute left-0 top-2 hidden h-4 w-4 rounded-full border border-white/30 bg-black md:block" />
-
-                <p className="text-sm text-gray-500">
-                  May 2022 — Dec 2023
-                </p>
-
-                <p className="mt-2 text-sm text-gray-600">
-                  India
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-semibold">
-                  Software Engineer / Analyst
-                </h3>
-
-                <p className="mt-1 text-gray-400">
-                  Unizen Technologies Pvt. Ltd.
-                </p>
-
-                <p className="mt-5 max-w-3xl leading-7 text-gray-400">
-                  Built 20+ REST APIs and backend workflows supporting 5,000+
-                  users, while improving API response latency by roughly 20%
-                  and contributing to cloud and enterprise data pipelines.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {[
-                    "Node.js",
-                    "MySQL",
-                    "AWS",
-                    "PySpark",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 px-3 py-1 text-sm text-gray-500"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
+      {/* Contact — target of the AS section menu and navbar */}
+      <section id="contact" className="scroll-mt-28 border-t border-white/10 px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-gray-500">Get in touch</p>
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Let&apos;s connect.</h2>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-400">
+            Interested in AI engineering, software systems, or working together? I&apos;d love to hear from you.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="mailto:aswithreddy907@gmail.com" className="rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-gray-200">Email Me</a>
+            <a href="https://www.linkedin.com/in/aswithsama/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/25 px-6 py-3 font-medium text-white transition hover:bg-white/10">LinkedIn</a>
+            <a href="https://github.com/AswithSama" target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/25 px-6 py-3 font-medium text-white transition hover:bg-white/10">GitHub</a>
           </div>
         </div>
       </section>

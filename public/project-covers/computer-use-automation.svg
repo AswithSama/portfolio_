@@ -1,0 +1,35 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1d4ed8" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(915 150) rotate(141.546) scale(404.694 556.506)">
+      <stop stop-color="white" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="176" y1="470" x2="1026" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="42" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#glow)"/>
+  <circle cx="995" cy="118" r="126" fill="white" fill-opacity="0.08"/>
+  <circle cx="1042" cy="205" r="174" fill="white" fill-opacity="0.05"/>
+  <circle cx="100" cy="585" r="160" fill="white" fill-opacity="0.04"/>
+  <rect x="70" y="70" width="200" height="42" rx="21" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.12"/>
+  <text x="100" y="98" fill="white" fill-opacity="0.92" font-size="20" font-family="Arial, Helvetica, sans-serif" letter-spacing="2.8">PROJECT</text>
+  <text x="96" y="210" fill="white" fill-opacity="0.70" font-size="26" font-family="Arial, Helvetica, sans-serif" letter-spacing="4.2">BROWSER AUTOMATION</text>
+  <text x="96" y="305" fill="white" font-size="68" font-weight="700" font-family="Arial, Helvetica, sans-serif">Discovery</text>
+  <text x="96" y="362" fill="white" fill-opacity="0.84" font-size="34" font-family="Arial, Helvetica, sans-serif">Discovery • Replay • Guardrails</text>
+  <line x1="96" y1="440" x2="1044" y2="440" stroke="url(#line)" stroke-width="2"/>
+  <rect x="96" y="490" width="210" height="76" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.12"/>
+  <rect x="334" y="490" width="210" height="76" rx="18" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.10"/>
+  <rect x="572" y="490" width="210" height="76" rx="18" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08"/>
+  <path d="M844 508H1045C1058.25 508 1069 518.75 1069 532V548C1069 561.255 1058.25 572 1045 572H844" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+  <circle cx="877" cy="540" r="14" fill="white" fill-opacity="0.9"/>
+  <circle cx="939" cy="540" r="14" fill="white" fill-opacity="0.38"/>
+  <circle cx="1001" cy="540" r="14" fill="white" fill-opacity="0.18"/>
+</svg>

@@ -1,53 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import SiteNav from "../components/SiteNav";
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white">
 
-      {/* Navbar */}
-      <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 lg:px-10">
-
-          <Link
-            href="/"
-            className="text-xl font-bold tracking-tight transition hover:opacity-70"
-          >
-            AS
-          </Link>
-
-          <div className="hidden items-center gap-3 text-base font-medium text-gray-300 md:flex">
-            <Link
-              href="/about"
-              className="rounded-full bg-white px-5 py-2.5 text-black transition-all duration-200 hover:bg-gray-200"
-            >
-              About
-            </Link>
-
-            <Link
-              href="/#projects"
-              className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-            >
-              Projects
-            </Link>
-
-            <Link
-              href="/#experience"
-              className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-            >
-              Experience
-            </Link>
-
-            <a
-              href="mailto:aswithreddy907@gmail.com"
-              className="rounded-full px-5 py-2.5 transition-all duration-200 hover:bg-white/[0.08] hover:text-white"
-            >
-              Contact
-            </a>
-          </div>
-
-        </div>
-      </nav>
+      <SiteNav />
 
 
       {/* About Hero */}
@@ -77,7 +36,7 @@ export default function AboutPage() {
           <div>
             <div className="relative h-[480px] w-full max-w-[400px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
               <Image
-                src="/profile.png"
+                src="/aswith-about.jpg"
                 alt="Aswith Reddy Sama"
                 fill
                 priority
@@ -212,6 +171,17 @@ export default function AboutPage() {
                 decisions while the surrounding system determined what it was
                 actually allowed to do — making the overall workflow more
                 reliable, context-aware, and suitable for real production use.
+              </p>
+
+              <p>
+                Today, at Box Technology Group, I&apos;m applying those lessons to
+                Ressa, a multi-agent conversational AI platform for real estate.
+                The work connects retrieval, intent classification, fact
+                extraction, messaging, CRM workflows, and scheduling across 16
+                domains. I&apos;m also building evaluation coverage for 320+
+                scenarios, with explicit targets for classification accuracy
+                and context retention — because a useful AI system needs to
+                be measurable and trustworthy, not just impressive in a demo.
               </p>
 
               <p>
@@ -358,7 +328,7 @@ export default function AboutPage() {
                 </p>
 
                 <p className="mt-3 text-lg text-white">
-                  LLMs, RAG, ML, Backend & Data
+                  Multi-Agent AI, RAG, Guardrails, Backend & ML
                 </p>
               </div>
 
